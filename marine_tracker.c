@@ -50,7 +50,6 @@ void ensure_capacity() {
     }
 }
 
-// --- I/O & Menu ---
 void print_menu() {
     printf("\n=== Marine Species Tracker ===\n");
     printf("1) Add Record\n2) List All Records\n3) Search by Species\n");
@@ -68,7 +67,29 @@ int get_choice(int min, int max) {
         } else { while (getchar()!='\n'); return choice; }
     }
 }
-//tambahin function baru di atas main
+
+void search_by_species() {
+    printf("Select species:\n0 = Fish\n1 = Mammal\n2 = Crustacean\n3 = Mollusk\n");
+    int t = get_choice(0,3), found = 0;
+    for (int i = 0; i < count; i++)
+        if (records[i].type == t) {
+            display_record(&records[i], i);
+            found++;
+        }
+    if (!found) printf("No matches.\n");
+}
+
+void delete_record() {
+    list_all();
+    if (count == 0) return;
+    printf("Delete record #: ");
+    int idx = get_choice(1, count) - 1;
+    for (int i = idx; i < count - 1; i++)
+        records[i] = records[i + 1];
+    count--;
+    printf("Deleted.\n");
+}
+
 int main() {
     
 }
