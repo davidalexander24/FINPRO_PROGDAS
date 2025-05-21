@@ -50,6 +50,28 @@ void ensure_capacity() {
     }
 }
 
+void search_by_species() {
+    printf("Select species:\n0 = Fish\n1 = Mammal\n2 = Crustacean\n3 = Mollusk\n");
+    int t = get_choice(0,3), found = 0;
+    for (int i = 0; i < count; i++)
+        if (records[i].type == t) {
+            display_record(&records[i], i);
+            found++;
+        }
+    if (!found) printf("No matches.\n");
+}
+
+void delete_record() {
+    list_all();
+    if (count == 0) return;
+    printf("Delete record #: ");
+    int idx = get_choice(1, count) - 1;
+    for (int i = idx; i < count - 1; i++)
+        records[i] = records[i + 1];
+    count--;
+    printf("Deleted.\n");
+}
+
 //tambahin function baru di atas main
 int main() {
     
