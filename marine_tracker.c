@@ -27,6 +27,21 @@ void init_array() {
     if (!records) { perror("malloc"); exit(EXIT_FAILURE); }
 }
 
+void display_record(const MarineRecord *r, int idx) {
+    const char *names[] = {"Fish","Mammal","Crustacean","Mollusk"};
+    printf("[%d] %s (%s), %.1f cm, ", idx+1, r->name, names[r->type], r->length);
+    if (r->type == MAMMAL)
+        printf("Avg Wt: %.2f kg\n", r->info.averageWeight);
+    else
+        printf("School: %d\n", r->info.typicalCount);
+}
+
+void list_all() {
+    if (count == 0) { printf("No records.\n"); return; }
+    for (int i = 0; i < count; i++) display_record(&records[i], i);
+}
+
+
 void ensure_capacity() {
     if (count >= capacity) {
         capacity *= 2;
