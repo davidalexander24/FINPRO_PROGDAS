@@ -3,6 +3,7 @@
 #include <string.h>
 
 
+//tambahin function baru di atas main
 int main() {
 
 }
