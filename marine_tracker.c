@@ -110,13 +110,14 @@ void show_stats() {
 
 void prompt_new_record() {
     MarineRecord rec;
-    printf("Enter name: ");
-    fgets(rec.name, sizeof(rec.name), stdin);
-    rec.name[strcspn(rec.name, "\n")] = '\0';
 
     printf("Enter Species:\n0 = Fish\n1 = Mammal\n2 = Crustacean\n3 = Mollusk\n");
     rec.type = get_choice(0,3);
 
+    printf("Enter name: ");
+    fgets(rec.name, sizeof(rec.name), stdin);
+    rec.name[strcspn(rec.name, "\n")] = '\0';
+    
     printf("Length (cm): "); scanf("%f", &rec.length); while(getchar()!='\n');
 
     if (rec.type == MAMMAL) {
