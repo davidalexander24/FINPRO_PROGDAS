@@ -108,6 +108,30 @@ void show_stats() {
         printf("%s: %d\n", names[i], species_counts[i]);
 }
 
+void prompt_new_record() {
+    MarineRecord rec;
+    printf("Enter name: ");
+    fgets(rec.name, sizeof(rec.name), stdin);
+    rec.name[strcspn(rec.name, "\n")] = '\0';
+
+    printf("Enter Species:\n0 = Fish\n1 = Mammal\n2 = Crustacean\n3 = Mollusk\n");
+    rec.type = get_choice(0,3);
+
+    printf("Length (cm): "); scanf("%f", &rec.length); while(getchar()!='\n');
+
+    if (rec.type == MAMMAL) {
+        printf("Average weight (kg): ");
+        scanf("%f", &rec.info.averageWeight);
+    } else {
+        printf("Typical school count: ");
+        scanf("%d", &rec.info.typicalCount);
+    }
+    while(getchar()!='\n');
+
+    ensure_capacity();
+    records[count++] = rec;
+    printf("Record added!\n");
+}
 
 int main() {
         init_array();
