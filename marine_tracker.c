@@ -140,8 +140,13 @@ int main() {
         print_menu();
         choice = get_choice(1,6);
         switch (choice) {
-            // (menu hooks to be added later)
+            case 1: prompt_new_record(); break;
+            case 2: list_all();         break;
+            case 3: search_by_species();break;
+            case 4: delete_record();    break;
+            case 5: show_stats();       break;
         }
+
     } while (choice != 6);
 
     free(records);
