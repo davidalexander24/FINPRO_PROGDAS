@@ -74,5 +74,17 @@ void delete_record() {
 
 //tambahin function baru di atas main
 int main() {
-    
+        init_array();
+    int choice;
+    do {
+        print_menu();
+        choice = get_choice(1,6);
+        switch (choice) {
+            // (menu hooks to be added later)
+        }
+    } while (choice != 6);
+
+    free(records);
+    printf("Goodbye!\n");
+    return 0;
 }
