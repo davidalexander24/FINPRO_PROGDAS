@@ -50,6 +50,24 @@ void ensure_capacity() {
     }
 }
 
+void print_menu() {
+    printf("\n=== Marine Species Tracker ===\n");
+    printf("1) Add Record\n2) List All Records\n3) Search by Species\n");
+    printf("4) Delete Record\n5) Show Statistics\n6) Exit\n");
+}
+
+int get_choice(int min, int max) {
+    int choice;
+    while (1) {
+        printf("Enter choice (%d-%d): ", min, max);
+        if (scanf("%d", &choice) != 1) {
+            printf("Invalid. Try again.\n"); while (getchar()!='\n');
+        } else if (choice < min || choice > max) {
+            printf("Out of range. Try again.\n");
+        } else { while (getchar()!='\n'); return choice; }
+    }
+}
+
 void search_by_species() {
     printf("Select species:\n0 = Fish\n1 = Mammal\n2 = Crustacean\n3 = Mollusk\n");
     int t = get_choice(0,3), found = 0;
@@ -72,7 +90,6 @@ void delete_record() {
     printf("Deleted.\n");
 }
 
-//tambahin function baru di atas main
 int main() {
     
 }
