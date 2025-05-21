@@ -90,6 +90,25 @@ void delete_record() {
     printf("Deleted.\n");
 }
 
+float compute_avg_length() {
+    float sum = 0;
+    for (int i = 0; i < count; i++) sum += records[i].length;
+    return count ? sum / count : 0;
+}
+
+void show_stats() {
+    float avg = compute_avg_length();
+    int species_counts[4] = {0};
+    for (int i = 0; i < count; i++)
+        species_counts[records[i].type]++;
+
+    printf("\n--- Stats ---\nAverage Length: %.2f cm\n", avg);
+    const char *names[] = {"Fish","Mammal","Crustacean","Mollusk"};
+    for (int i = 0; i < 4; i++)
+        printf("%s: %d\n", names[i], species_counts[i]);
+}
+
+
 int main() {
         init_array();
     int choice;
