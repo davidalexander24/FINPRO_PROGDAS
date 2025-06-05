@@ -53,10 +53,10 @@ Average weight (kg): 150000
 
 ## Team Members
 
-- **David Alexander** (2406351592) - Core structures and memory management
-- **Nicholas Edmund** (2406352986) - Display functions and integration  
-- **Tubagus Dafa Izza Fariz** (2406350122) - User interface and input validation
-- **M. Rifqi Fadil** (2406355306) - Search and statistics functions
+- **David Alexander** (2406351592) Github username: davidalexander24 - Core structures and memory management
+- **Nicholas Edmund** (2406352986) GitHub Username: niconett18 - Display functions and integration  
+- **Tubagus Dafa Izza Fariz** (2406350122) GitHub Username: yourpis - User interface and input validation
+- **M. Rifqi Fadil** (2406355306) GitHub Username: rifqifadill - Search and statistics functions
 
 ## Course Info
 
